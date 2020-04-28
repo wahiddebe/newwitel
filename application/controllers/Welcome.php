@@ -3,21 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
+	function __construct()
+	{
+		parent::__construct();
+		$this->load->model('m_keberangkatan');
+		$this->load->model('m_karyawan');
+		$this->load->model('m_pemesanan');
+	}
 	public function index()
 	{
 
@@ -34,7 +26,9 @@ class Welcome extends CI_Controller {
 			'pesan'	=> '#pesan',
 			'status' => 'status',
 			'active1' => 'active',
-			'active2' => ''
+			'active2' => '',
+			'witel'	=> $this->m_keberangkatan->get_witel(),
+			'kecamatan' => $this->m_keberangkatan->get_district()
 
         );
 		$this->load->view('v_home',$data);
@@ -50,15 +44,35 @@ class Welcome extends CI_Controller {
 	}
 
 	public function status()
-	{
+	{$u=$this->session->userdata('user');
+
 
 		$data = array(
 			'title' => 'Status Pemesanan',
 			'pesan'	=> 'home',
 			'status' => '#',
 			'active1' => '',
-			'active2' => 'active'
+			'active2' => 'active',
+			'st' => $this->m_pemesanan->get_status($u),
+			'kar' => $this->m_karyawan->karyawan($u)
         );
 		$this->load->view('v_status',$data);
 	}
+
+	function get_pool(){
+		$id=$this->input->post('id');
+		$data=$this->m_keberangkatan->get_pool($id);
+		echo json_encode($data);
+	}
+
+	function get_alamat(){
+		$modul=$this->input->post('modul');
+		$id=$this->input->post('id');
+		if($modul=='jalan'){
+			$data=$this->m_keberangkatan->get_alamat($id);
+			echo json_encode($data);
+		}
+       
+	}
 }
+
