@@ -11,8 +11,11 @@ class M_karyawan extends CI_Model{
     }
 
     function get_atasan($id){
-        $hasil=$this->db->query("select*from w_atasan where nik='$id' ");
-        return $hasil;
+        
+        $this->db->select('*');
+        $this->db->from('w_atasan');
+        $this->db->where('nik', $id);
+        return $this->db->get();
     }
   
 }

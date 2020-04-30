@@ -1,5 +1,5 @@
 <?php
-class M_keberangkatan extends CI_Model{
+class M_witel extends CI_Model{
  
     function get_witel(){
         $hasil=$this->db->query("SELECT * FROM witel");

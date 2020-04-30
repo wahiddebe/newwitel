@@ -10,7 +10,8 @@
                         <a class="nav-link <?= $active2 ?>" href="<?= $status ?>">Status</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="btn btn-info btn-sm text-right d-xl-flex justify-content-xl-end" type="button">Log Out</button>
+                        <a href="<?= base_url('auth/logout') ?>"><button class="btn btn-info btn-sm text-right d-xl-flex justify-content-xl-end" type="button">Log Out</button></a>
+                        
                     </li>
                 </ul>
             </div>

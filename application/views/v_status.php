@@ -6,9 +6,8 @@ require_once('template/v_header.php');
 <main class="page landing-page">
         <section class="clean-block clean-hero" style="background-image: url('<?= base_url('template/assets/img/36351972634_8911e8d87a_k.jpg') ?>');color: rgba(255,9,9,0.83);">
             <div class="text">
-                <h2><strong>SELAMAT DATANG,</strong><br></h2>
-                <p>Silahkan memesan kebutuhan anda,<br>&nbsp;dengan mengisikan form pemesanan terlebih dahulu<br></p>
-                <a href="#pesan"><button class="btn btn-outline-light btn-lg" type="button" >Pesan Sekarang</button></a>
+                <p>Silahkan cek status pemesanan anda dibawah ini</p>
+                <a href="#cek"><button class="btn btn-outline-light btn-lg" type="button" >Cek Status</button></a>
             </div>
         </section>
         <section class="clean-block clean-form dark">
@@ -20,7 +19,7 @@ require_once('template/v_header.php');
                     
 
                     <!-- Start: Table With Search -->
-                    <div class="col-md-12 search-table-col" style="margin-top: 23px;">
+                    <div id="cek" class="col-md-12 search-table-col" style="margin-top: 23px;">
                         <div class="table-responsive table-bordered table table-hover table-bordered results">
                             <table class="table table-bordered table-hover">
                                 <thead class="bill-header cs">
@@ -78,20 +77,12 @@ require_once('template/v_header.php');
                                         $wkt_pulang = $a['wkt_pulang'];
                                         $sim = $a['sim'];
                                         $no_reg = $a['no_reg'];
-                                        foreach ($kar->result_array() as $a) :
-                                          
-                                            $nikkar = $a['nik'];
-                                            $namakar = $a['nama_karyawan'];
-                                            $divisi = $a['divisi'];
-                                            $jbtn = $a['jabatan'];
-                                            $nikastas = $a['nik_atasan'];
-                                        endforeach;
-                                       
+                                    
                                     ?>
                                         <tr>
                                             
                                             <td "><?php echo $no_order; ?></td>
-                                            <td "><?php echo $namakar?></td>
+                                            <td "><?php echo $this->session->userdata('nama_user')?></td>
                                             <td "><?php echo $jns_keperluan ?></td>
                                             <td "><?php echo $jns_pemesanan ?></td>
                                             <td "><?php echo  $tgl_berangkat."<br>".$wkt_berangkat; ?></td>

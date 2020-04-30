@@ -7,7 +7,7 @@ require_once('template/v_head.php');
             <div class="text">
                 <h2><strong>Selamat Datang di KBM Online !</strong><br></h2>
                 <p>Layanan operasional yang lebih aman dan nyaman, tidak perlu repot membawa kendaraan, membayar tol dan parkir.</p>
-                <a href="<?= base_url('welcome/login') ?>"><button class="btn btn-outline-light btn-lg" type="button" >Login Sekarang</button></a>
+                <a href="<?= base_url('auth') ?>"><button class="btn btn-outline-light btn-lg" type="button" >Login Sekarang</button></a>
             </div>
         </section>
     </main>
