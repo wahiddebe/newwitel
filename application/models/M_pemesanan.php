@@ -42,6 +42,6 @@ class M_pemesanan extends CI_Model
 		} else {
 			$kd = "000001";
 		}
-		return "KMB" . $kd;
+		return "KBM" . $kd;
 	}
 }

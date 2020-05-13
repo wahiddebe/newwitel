@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 30, 2020 at 10:28 PM
--- Server version: 10.4.10-MariaDB
--- PHP Version: 7.1.33
+-- Generation Time: May 13, 2020 at 10:53 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -1143,8 +1142,8 @@ CREATE TABLE `mobil` (
 --
 
 INSERT INTO `mobil` (`no_reg`, `merk`, `jns_mobil`, `tahun`, `km_pemakaian`, `status_mobil`, `lain-lain`) VALUES
-('H-2924-GK', 'SUZUKI', 'ERTIGA', 2018, 2048, 'Available', 'WARNA PUTIH'),
-('H-2966-AK', 'ISUZU', 'PANTHER LS', 2002, 500, 'Available', 'WARNA PUTIH');
+('H-2924-GK', 'SUZUKI', 'ERTIGA', 2018, 2048, 'No Available', 'WARNA PUTIH'),
+('H-2966-AK', 'ISUZU', 'PANTHER LS', 2002, 500, 'No Available', 'WARNA PUTIH');
 
 -- --------------------------------------------------------
 
@@ -1166,7 +1165,6 @@ CREATE TABLE `pemesanan` (
   `tgl_berangkat` date NOT NULL,
   `tgl_pulang` date NOT NULL,
   `jml_penumpang` int(11) NOT NULL,
-  `nik_penumpang` varchar(255) NOT NULL,
   `atasan` varchar(255) NOT NULL,
   `no_tlpn_kantor` varchar(255) NOT NULL,
   `hp` varchar(255) NOT NULL
@@ -1176,8 +1174,9 @@ CREATE TABLE `pemesanan` (
 -- Dumping data for table `pemesanan`
 --
 
-INSERT INTO `pemesanan` (`no_order`, `nik`, `no_reg`, `sim`, `jns_keperluan`, `jns_pemesanan`, `almt_jemput`, `almt_tujuan`, `wkt_berangkat`, `wkt_pulang`, `tgl_berangkat`, `tgl_pulang`, `jml_penumpang`, `nik_penumpang`, `atasan`, `no_tlpn_kantor`, `hp`) VALUES
-('OR000001', 990006, 'H-2966-AK', NULL, 'regular', 'mobil', 'Purwokerto, Merdeka', 'asdasd, Jl. Mangunsari, 3, GUNUNGPATI, semarang', '00:00:00', '00:00:00', '0000-00-00', '0000-00-00', 4, '990006, a, b, vc', '998877', '', '');
+INSERT INTO `pemesanan` (`no_order`, `nik`, `no_reg`, `sim`, `jns_keperluan`, `jns_pemesanan`, `almt_jemput`, `almt_tujuan`, `wkt_berangkat`, `wkt_pulang`, `tgl_berangkat`, `tgl_pulang`, `jml_penumpang`, `atasan`, `no_tlpn_kantor`, `hp`) VALUES
+('KBM000002', 990006, 'H-2966-AK', NULL, 'regular', 'mobil', 'Semarang(Johar)', 'Jl. Kampung Palir 1, Kec. NGALIYAN, Kota ( 1 ) ', '11:11:00', '11:11:00', '2020-05-14', '2020-05-15', 1, '998877', '1', '1'),
+('KBM000003', 990006, 'H-2924-GK', 500008, 'sosial', 'mobilsopir', 'Semarang(Johar)', 'Jl. Citandui Selatan 1, Kec. SEMARANG TIMUR, Kota ( 1 ) ', '11:11:00', '01:01:00', '2020-05-14', '2020-05-14', 1, '998877', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -1234,7 +1233,7 @@ INSERT INTO `supir` (`sim`, `nama_supir`, `email_supir`, `no_hp_supir`, `order_t
 (500005, 'SUPIR5', 'supir5@telkom.co.id', '+628299999905', 3, 'No Available'),
 (500006, 'SUPIR6', 'supir6@telkom.co.id', '+628299999906', 0, 'No Available'),
 (500007, 'SUPIR7', 'supir7@telkom.co.id', '+628299999907', 3, 'No Available'),
-(500008, 'SUPIR8', 'supir8@telkom.co.id', '+628299999908', 0, 'Available'),
+(500008, 'SUPIR8', 'supir8@telkom.co.id', '+628299999908', 1, 'No Available'),
 (500009, 'SUPIR9', 'supir9@telkom.co.id', '+628299999909', 3, 'No Available'),
 (500010, 'SUPIR10', 'supir10@telkom.co.id', '+628299999910', 15, 'Available');
 
