@@ -16,7 +16,7 @@ class Welcome extends CI_Controller {
 		if ($this->session->userdata('username')=="") {
             
 		$data = array(
-			'title' => 'Landing Page'
+			'title' => 'KBM ONLINE | Landing Page'
         );
 		$this->load->view('v_landing',$data);
 		}
@@ -31,7 +31,7 @@ class Welcome extends CI_Controller {
 		$this->admin_login->cek_login();
 		$u=$this->session->userdata('nik_atasan');
 		$data = array(
-			'title' => 'Home',
+			'title' => 'KBM ONLINE | Home',
 			'pesan'	=> '#pesan',
 			'status' => 'status',
 			'active1' => 'active',
@@ -48,7 +48,7 @@ class Welcome extends CI_Controller {
 	{
 		$this->admin_login->cek_login();
 		$data = array(
-			'title' => 'Login Page'
+			'title' => 'KBM ONLINE | Login Page'
         );
 		$this->load->view('v_login',$data);
 	}
@@ -60,7 +60,7 @@ class Welcome extends CI_Controller {
 
 
 		$data = array(
-			'title' => 'Status Pemesanan',
+			'title' => 'KBM ONLINE | Status Pemesanan',
 			'pesan'	=> 'home',
 			'status' => '#',
 			'active1' => '',

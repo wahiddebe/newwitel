@@ -16,7 +16,7 @@ class Auth extends CI_Controller {
     public function index()
     {
 		$data = array(
-			'title' => 'Login Page'
+			'title' => 'KBM ONLINE | Login Page'
         );
 		$this->load->view('v_login',$data);
     }
@@ -34,7 +34,7 @@ class Auth extends CI_Controller {
             redirect('welcome/home');
         } else {
 		$data = array(
-			'title' => 'Login Page'
+			'title' => 'KBM ONLINE | Login Page'
         );
 		$this->load->view('v_login',$data);
         }
